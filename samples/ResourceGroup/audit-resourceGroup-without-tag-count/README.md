@@ -10,8 +10,8 @@ Within this Policy, you sepcify the Tag Count Value that will be used for identi
 ## Try with PowerShell
 
 ````powershell
-$definition = New-AzPolicyDefinition -Name "audit-resourceGroup-without-tag-count" -DisplayName "Audit Resource Groups based on Tag count" -description "Audits all Resource Groups that do not have a specific Tag count." -Policy 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.parameters.json' -Mode All
-$definition
+$definition = New-AzPolicyDefinition -Name "audit-resourceGroup-without-tag-count" -DisplayName "Audit Resource Groups based on Tag count" -description "Audits all Resource Groups that do not have a specific Tag count." -Policy 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.parameters.json'
+
 $assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope> -tagName <tagName> -tagValue <tagValue> -PolicyDefinition $definition
 $assignment 
 ````
