@@ -12,7 +12,7 @@ Within this Policy, you sepcify the Tag Count Value that will be used for identi
 ````powershell
 $definition = New-AzPolicyDefinition -Name "audit-resourceGroup-without-tag-count" -DisplayName "Audit Resource Groups based on Tag count" -description "Audits all Resource Groups that do not have a specific Tag count." -Policy 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.parameters.json'
 $definition
-$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope> -tagName <tagName> -tagValue <tagValue> -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope> -tagCount <tagCount> -PolicyDefinition $definition
 $assignment 
 ````
 
@@ -21,5 +21,5 @@ $assignment
 ````cli
 az policy definition create --name 'audit-resourceGroup-without-tag-count' --display-name 'Audit Resource Groups based on Tag count' --description 'Audits all Resource Groups that do not have a specific Tag count.' --rules 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.parameters.json' --mode All
 
-az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-resourceGroup-without-tag-count" 
+az policy assignment create --name <assignmentname> --scope <scope> --tagcount <tagcount> --policy "audit-resourceGroup-without-tag-count" 
 ````
