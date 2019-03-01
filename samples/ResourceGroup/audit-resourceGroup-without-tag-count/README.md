@@ -21,5 +21,6 @@ $assignment
 ````cli
 az policy definition create --name 'audit-resourceGroup-without-tag-count' --display-name 'Audit Resource Groups based on Tag count' --description 'Audits all Resource Groups that do not have a specific Tag count.' --rules 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/RichShillingtonMSFT/azure-policy/master/samples/ResourceGroup/audit-resourceGroup-without-tag-count/azurepolicy.parameters.json'
 
-az policy assignment create --name <assignmentname> --scope <scope> --tagcount <tagcount> --policy "audit-resourceGroup-without-tag-count" 
+az policy assignment create --name <assignmentname> --scope <scope> --params "{'tagcount':{'value':'<tagcount>'}}" --policy "audit-resourceGroup-without-tag-count" 
+
 ````
