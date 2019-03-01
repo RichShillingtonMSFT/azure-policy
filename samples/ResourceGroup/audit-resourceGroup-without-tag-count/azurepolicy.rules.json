@@ -1,21 +1,17 @@
 {
-  "mode": "all",
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "field": "type",
-          "equals": "Microsoft.Resources/subscriptions/resourceGroups"
-        },
-        {
-          "value": "[less(length(field('tags')), int(parameters('tagCount')))]",
-          "equals": "true"
-        }
-      ]
-    },
-    "then": {
-      "effect": "audit"
-    }
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+      },
+      {
+        "value": "[less(length(field('tags')), int(parameters('tagCount')))]",
+        "equals": "true"
+      }
+    ]
   },
-  "parameters": {}
+  "then": {
+    "effect": "audit"
+  }
 }
