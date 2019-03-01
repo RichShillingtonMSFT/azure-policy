@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "displayName": "Audits all Resource Groups that do not have a specific Tag count",
+        "description": "Audits all Resource Groups that do not have a specific Tag count.",
+        "mode": "All",
+        "parameters": {
+            "tagCount": {
+              "type": "String",
+              "metadata": {
+                "displayName": "Tag Count",
+                "description": "The Count of Tags Required on Resource Groups"
+              }
+            }
+        },
+        "policyRule": {
+            "if": {
+              "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+                },
+                {
+                  "value": "[less(length(field('tags')), int(parameters('tagCount')))]",
+                  "equals": "true"
+                }
+              ]
+            },
+            "then": {
+              "effect": "audit"
+            }
+        }
+    }
+}

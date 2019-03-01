@@ -1,0 +1,9 @@
+{
+    "tagCount": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Count",
+        "description": "The Count of Tags Required on Resource Groups"
+      }
+    }
+}
